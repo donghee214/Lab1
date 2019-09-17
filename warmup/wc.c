@@ -12,12 +12,12 @@ struct wc *
 wc_init(char *word_array, long size)
 {
 	struct wc *wc;
-
+	printf("here");
+	printf(word_array);
 	wc = (struct wc *)malloc(sizeof(struct wc));
 	assert(wc);
 
-	printf("here");
-	printf(word_array);
+
 
 	return wc;
 }
