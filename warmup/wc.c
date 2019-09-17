@@ -16,7 +16,7 @@ wc_init(char *word_array, long size)
 	wc = (struct wc *)malloc(sizeof(struct wc));
 	assert(wc);
 
-	TBD();
+	printf(word_array);
 
 	return wc;
 }

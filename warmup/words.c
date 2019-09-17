@@ -1,8 +1,15 @@
 #include "common.h"
 
 int
-main()
+main(int argc, char **argv)
 {
-	TBD();
-	return 0;
+    int loop;
+    
+    for(loop = 1; loop < argc; loop++){
+        printf(argv[loop]);
+        printf("\n"); 
+    }
+        
+
+    return 0;
 }
