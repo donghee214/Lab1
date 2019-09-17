@@ -16,7 +16,8 @@ wc_init(char *word_array, long size)
 	wc = (struct wc *)malloc(sizeof(struct wc));
 	assert(wc);
 
-	// printf(word_array);
+	printf("here");
+	printf(word_array);
 
 	return wc;
 }
@@ -24,12 +25,12 @@ wc_init(char *word_array, long size)
 void
 wc_output(struct wc *wc)
 {
-	TBD();
+	printf("here output");
 }
 
 void
 wc_destroy(struct wc *wc)
 {
-	TBD();
+	printf("here output");
 	free(wc);
 }
