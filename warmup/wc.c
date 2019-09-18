@@ -12,8 +12,8 @@ int hashFunction(int key){
 
 struct wc {
 	/* you can define this struct to have whatever fields you want. */
-	char key[];
 	int data;
+	char key[];
 };
 
 struct wc *
