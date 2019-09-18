@@ -20,8 +20,16 @@ struct wc *
 wc_init(char *word_array, long size)
 {
 	struct wc *wc;
+	char word[];
 	for(int i = 0; i < size; i++){
-		printf("%c", word_array[i]);
+		if(isspace(word_array[i] == 0)){
+			word[strlen(word)] = word_array[i];
+		};
+		else{
+			printf(word);
+			word = "";
+		}
+		
 	};
 	sizeOfHashArray = size;
 	wc = (struct wc *)malloc(sizeof(struct wc));
