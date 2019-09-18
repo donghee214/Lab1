@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
 #include "common.h"
@@ -25,7 +26,7 @@ wc_init(char *word_array, long size)
 	for(int i = 0; i < size; i++){
 		if(isspace(word_array[i] == 0)){
 			word[strlen(word)] = word_array[i];
-		};
+		}
 		else{
 			printf(word);
 			word = "";
