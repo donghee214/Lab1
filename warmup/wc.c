@@ -4,19 +4,26 @@
 #include "common.h"
 #include "wc.h"
 
+int sizeOfHashArray;
+
+int hashFunction(int key){
+	return key % sizeOfHashArray;
+}
+
 struct wc {
 	/* you can define this struct to have whatever fields you want. */
+	char key[];
+	int data;
 };
 
 struct wc *
 wc_init(char *word_array, long size)
 {
-	struct wc *wc;
-
+	for(int i = 0; i < size; i++){
+		printf("%c", word_array[i]);
+	};
+	sizeOfHashArray = size;
 	wc = (struct wc *)malloc(sizeof(struct wc));
-	assert(wc);
-
-
 
 	return wc;
 }
