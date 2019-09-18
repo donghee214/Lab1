@@ -22,8 +22,8 @@ wc_init(char *word_array, long size)
 	struct wc *wc;
 	char word[256] = "";
 	for(int i = 0; i < size; i++){
-		if(isspace(word_array[i] == 0)){
-			word[strlen(word)] = word_array[i];
+		if(int isspace(word_array[i] == 0)){
+			word[int strlen(word)] = word_array[i];
 		};
 		else{
 			printf(word);
