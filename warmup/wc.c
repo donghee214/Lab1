@@ -30,7 +30,7 @@ wc_init(char *word_array, long size)
 		else{
 			printf("%s", word);
 			printf("\n");
-			word[0] = '\0';
+			memset(word,0,sizeof(word));
 		}
 		
 	};
