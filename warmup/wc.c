@@ -29,6 +29,7 @@ wc_init(char *word_array, long size)
 		}
 		else{
 			printf(word);
+			word[0] = '\0';
 			word = "";
 		}
 		
