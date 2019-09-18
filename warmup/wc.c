@@ -19,6 +19,7 @@ struct wc {
 struct wc *
 wc_init(char *word_array, long size)
 {
+	struct wc *wc;
 	for(int i = 0; i < size; i++){
 		printf("%c", word_array[i]);
 	};
