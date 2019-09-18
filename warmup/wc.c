@@ -28,8 +28,8 @@ wc_init(char *word_array, long size)
 			word[strlen(word)] = word_array[i];
 		}
 		else{
-			printf("here");
 			printf("%s", word);
+			printf("\n");
 			word[0] = '\0';
 		}
 		
