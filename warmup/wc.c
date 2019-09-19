@@ -90,7 +90,7 @@ wc_init(char *word_array, long size)
 		}
 		
 	};
-	return wc;
+	return &wc;
 }
 
 void
