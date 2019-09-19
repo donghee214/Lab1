@@ -12,7 +12,7 @@ struct dataItem {
 };
 
 struct wc{
-	struct dataItem;
+	struct dataItem[];
 };
 
 
