@@ -86,7 +86,7 @@ wc_init(char *word_array, long size)
 			word[strlen(word)] = word_array[i];
 		}
 		else{
-			printf(search(hash(&word)));
+			printf(search(hash(word)));
 			memset(word,0,sizeof(word));
 		}
 		
