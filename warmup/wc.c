@@ -15,14 +15,65 @@ struct dataItem {
 
 struct dataItem* wc[SIZE];
 
+int hashCode(int key) {
+   return key % SIZE;
+}
 
-int hashFunction(int key, int sizeOfHashArray){
-	return key % sizeOfHashArray;
-};
+unsigned long
+hash(unsigned char *str)
+{
+    unsigned long hash = 5381;
+    int c;
+
+    while (c = *str++)
+        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+
+    return hash;
+}
 
 // struct wc *search(int key){
 // 	hashedArray
 // };
+
+struct DataItem *search(int key) {
+   //get the hash 
+   int hashIndex = hashCode(key);  
+	
+   //move in array until an empty 
+   while(hashArray[hashIndex] != NULL) {
+	
+      if(hashArray[hashIndex]->key == key)
+         return hashArray[hashIndex]; 
+			
+      //go to next cell
+      ++hashIndex;
+		
+      //wrap around the table
+      hashIndex %= SIZE;
+   }        
+	
+   return "EMPTY";        
+}
+
+// void insert(int key, int data) {
+//    struct DataItem *item = (struct DataItem*) malloc(sizeof(struct DataItem));
+//    item->data = data;  
+//    item->key = key;
+
+//    //get the hash 
+//    int hashIndex = hashCode(key);
+
+//    //move in array until an empty or deleted cell
+//    while(hashArray[hashIndex] != NULL && hashArray[hashIndex]->key != -1) {
+//       //go to next cell
+//       ++hashIndex;
+		
+//       //wrap around the table
+//       hashIndex %= SIZE;
+//    }
+	
+//    hashArray[hashIndex] = item;
+// }
 
 struct wc *
 wc_init(char *word_array, long size)
@@ -35,14 +86,12 @@ wc_init(char *word_array, long size)
 			word[strlen(word)] = word_array[i];
 		}
 		else{
-			wc = (struct wc *)malloc(sizeof(struct wc));
+			printf(search(hash(word)));
 			memset(word,0,sizeof(word));
 		}
 		
 	};
-	sizeOfHashArray = size;
 	
-
 	return wc;
 }
 
