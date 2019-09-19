@@ -6,21 +6,32 @@
 #include "common.h"
 #include "wc.h"
 
-int sizeOfHashArray;
+struct dataItem {
+	int data;
+	char key[];
+}
+
+struct wc {
+	dataItem* hashArray[];
+};
+
+
 
 int hashFunction(int key){
 	return key % sizeOfHashArray;
 }
 
-struct wc {
-	/* you can define this struct to have whatever fields you want. */
-	int data;
-	char key[];
-};
+struct wc *search(int key){
+	hashedArray
+}
 
 struct wc *
 wc_init(char *word_array, long size)
 {
+	wc = (struct wc *)malloc(sizeof(struct wc));
+	for(int i = 0; i < size; i++){
+		wc->hashArray[i] = NULL;
+	};
 	struct wc *wc;
 	char word[256] = "";
 	for(int i = 0; i < size; i++){
@@ -28,14 +39,13 @@ wc_init(char *word_array, long size)
 			word[strlen(word)] = word_array[i];
 		}
 		else{
-			printf("%s", word);
-			printf("\n");
+			wc = (struct wc *)malloc(sizeof(struct wc));
 			memset(word,0,sizeof(word));
 		}
 		
 	};
 	sizeOfHashArray = size;
-	wc = (struct wc *)malloc(sizeof(struct wc));
+	
 
 	return wc;
 }
