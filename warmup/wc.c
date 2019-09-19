@@ -6,13 +6,13 @@
 #include "common.h"
 #include "wc.h"
 
-typedef struct dataItem {
+struct dataItem {
 	int data;
 	char key[];
 };
 
 struct wc{
-	dataItem* hashArray[]
+	struct dataItem;
 };
 
 
@@ -27,8 +27,9 @@ int hashFunction(int key, int sizeOfHashArray){
 struct wc *
 wc_init(char *word_array, long size)
 {
-	wc = (struct wc *)malloc(sizeof(struct wc));
+	struct dataItem* hashArray[size]
 	struct wc *wc;
+	wc = (struct wc *)malloc(sizeof(struct wc));
 	char word[256] = "";
 	for(int i = 0; i < size; i++){
 		if(isspace(word_array[i]) == 0){
