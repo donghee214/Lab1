@@ -6,7 +6,7 @@
 #include "common.h"
 #include "wc.h"
 
-struct dataItem {
+typedef struct dataItem {
 	int data;
 	char key[];
 };
