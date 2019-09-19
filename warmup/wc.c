@@ -9,21 +9,19 @@
 struct dataItem {
 	int data;
 	char key[];
-}
+};
 
 struct wc {
 	dataItem* hashArray[];
 };
 
-
-
-int hashFunction(int key){
+int hashFunction(int key, int sizeOfHashArray){
 	return key % sizeOfHashArray;
-}
+};
 
-struct wc *search(int key){
-	hashedArray
-}
+// struct wc *search(int key){
+// 	hashedArray
+// };
 
 struct wc *
 wc_init(char *word_array, long size)
