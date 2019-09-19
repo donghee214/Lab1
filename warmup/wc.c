@@ -10,7 +10,7 @@
 
 struct dataItem {
 	int data;
-	char key[];
+	int key;
 };
 
 struct dataItem* wc[SIZE];
