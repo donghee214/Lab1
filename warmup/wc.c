@@ -25,7 +25,7 @@ hash(unsigned char *str)
     unsigned long hash = 5381;
     int c;
 
-    while (c = *str++)
+    while ((c = *str++))
         hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
 
     return hash;
@@ -40,10 +40,10 @@ struct DataItem *search(int key) {
    int hashIndex = hashCode(key);  
 	
    //move in array until an empty 
-   while(hashArray[hashIndex] != NULL) {
+   while(wc[hashIndex] != NULL) {
 	
-      if(hashArray[hashIndex]->key == key)
-         return hashArray[hashIndex]; 
+      if(wc[hashIndex]->key == key)
+         return wc[hashIndex]; 
 			
       //go to next cell
       ++hashIndex;
@@ -52,7 +52,7 @@ struct DataItem *search(int key) {
       hashIndex %= SIZE;
    }        
 	
-   return "EMPTY";        
+   return NULL;        
 }
 
 // void insert(int key, int data) {
@@ -79,14 +79,14 @@ struct wc *
 wc_init(char *word_array, long size)
 {
 	struct wc *wc;
-	wc = (struct wc *)malloc(sizeof(struct wc));
+	// wc = (struct wc *)malloc(sizeof(struct wc));
 	char word[256] = "";
 	for(int i = 0; i < size; i++){
 		if(isspace(word_array[i]) == 0){
 			word[strlen(word)] = word_array[i];
 		}
 		else{
-			printf(search(hash(word)));
+			printf(search(hash(&word)));
 			memset(word,0,sizeof(word));
 		}
 		
