@@ -11,9 +11,8 @@ struct dataItem {
 	char key[];
 };
 
-
 struct wc{
-	static dataItem* hashArray[]
+	dataItem* hashArray[]
 };
 
 
