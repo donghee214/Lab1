@@ -12,8 +12,8 @@ struct dataItem {
 };
 
 struct wc{
-	struct dataItem[];
-};
+	struct dataItem* hashArray[]; 
+} wc;
 
 
 int hashFunction(int key, int sizeOfHashArray){
