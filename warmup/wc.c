@@ -11,9 +11,8 @@ struct dataItem {
 	char key[];
 };
 
-struct wc {
-	dataItem* hashArray[];
-};
+struct dataItem* hashArray[];
+
 
 int hashFunction(int key, int sizeOfHashArray){
 	return key % sizeOfHashArray;
