@@ -79,7 +79,6 @@ struct wc *
 wc_init(char *word_array, long size)
 {
 	struct wc *wc;
-	wc = (struct wc *)malloc(sizeof(struct wc));
 	unsigned char word[256] = "";
 	for(int i = 0; i < size; i++){
 		if(isspace(word_array[i]) == 0){
@@ -91,7 +90,7 @@ wc_init(char *word_array, long size)
 		}
 		
 	};
-	return wc;
+	return hashArray;
 }
 
 void
