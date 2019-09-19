@@ -6,14 +6,14 @@
 #include "common.h"
 #include "wc.h"
 
+#define SIZE 1000000
+
 struct dataItem {
 	int data;
 	char key[];
 };
 
-struct wc{
-	struct dataItem* hashArray[]; 
-} wc;
+struct dataItem* wc[SIZE];
 
 
 int hashFunction(int key, int sizeOfHashArray){
@@ -27,7 +27,6 @@ int hashFunction(int key, int sizeOfHashArray){
 struct wc *
 wc_init(char *word_array, long size)
 {
-	struct dataItem* hashArray[size]
 	struct wc *wc;
 	wc = (struct wc *)malloc(sizeof(struct wc));
 	char word[256] = "";
