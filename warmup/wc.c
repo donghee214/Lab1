@@ -11,7 +11,10 @@ struct dataItem {
 	char key[];
 };
 
-struct dataItem* hashArray[];
+
+struct wc{
+	static dataItem* hashArray[]
+};
 
 
 int hashFunction(int key, int sizeOfHashArray){
@@ -26,9 +29,6 @@ struct wc *
 wc_init(char *word_array, long size)
 {
 	wc = (struct wc *)malloc(sizeof(struct wc));
-	for(int i = 0; i < size; i++){
-		wc->hashArray[i] = NULL;
-	};
 	struct wc *wc;
 	char word[256] = "";
 	for(int i = 0; i < size; i++){
