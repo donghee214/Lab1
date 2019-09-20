@@ -25,7 +25,7 @@ static dataItem deletedDataItem = {NULL, NULL};
 static int hash(char* str, int prime, int buckets){
     long hash = 1;
     for (int i = 0; i < strlen(str); i++){
-        hash += (long)pow(prime, strlen(str) - (i+1)) * abs(str[i]);
+        hash += (long)pow(prime, strlen(str) - (i+1)) * str[i];
         hash = hash % buckets;
     }
     return (int)hash;
