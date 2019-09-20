@@ -39,12 +39,8 @@ static int getHash(const char* str, const int attempt, const int buckets){
 
 static dataItem* newDataItem(char* inputKey, char* inputValue){
     dataItem* i = malloc(sizeof(dataItem));
-	char* temp = malloc(sizeof(char*)); 
-	temp = strdup(inputKey);
-	char* temp2 = malloc(sizeof(char*)); 
-	temp2 = strdup(inputValue);
-    i->key = temp;
-    i->value = temp2;
+    i->key = strdup(inputKey);
+    i->value = strdup(inputValue);
     return i;
 };
 
@@ -110,7 +106,7 @@ struct wc *
 wc_init(char *word_array, long size)
 {   
     struct wc* wc = (struct wc *)malloc(sizeof(struct wc));
-    wc->size = 4000;
+    wc->size = 1000;
     wc->filledCount = 0;
     wc->items = calloc((size_t)wc->size, sizeof(dataItem*));
     char word[40]= "";
