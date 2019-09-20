@@ -43,8 +43,8 @@ static dataItem* newDataItem(const char*inputKey, const char* inputValue){
 	char* tempVal = strdup(inputValue);
     i->key = tempKey;
     i->value = tempVal;
-	kfree(tempKey);
-	kfree(tempVal);
+	free(tempKey);
+	free(tempVal);
     return i;
 };
 
