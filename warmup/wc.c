@@ -22,7 +22,7 @@ static dataItem deletedDataItem = {NULL, NULL};
 
 
 
-static int hash(const char* str, const int prime, const int buckets){
+static int hash(char* str, int prime, int buckets){
     long hash = 0;
     for (int i = 0; i < strlen(str); i++){
         hash += (long)pow(prime, strlen(str) - (i+1)) * str[i];
@@ -37,14 +37,10 @@ static int getHash(const char* str, const int attempt, const int buckets){
     return (hashA + (attempt * (hashB + 1))) % buckets;
 };
 
-static dataItem* newDataItem(const char*inputKey, const char* inputValue){
+static dataItem* newDataItem(char*inputKey, char* inputValue){
     dataItem* i = malloc(sizeof(dataItem));
-	char* tempKey = strdup(inputKey);
-	char* tempVal = strdup(inputValue);
-    i->key = tempKey;
-    i->value = tempVal;
-	free(tempKey);
-	free(tempVal);
+    i->key = strdup(inputKey);
+    i->value = strdup(inputValue);
     return i;
 };
 
