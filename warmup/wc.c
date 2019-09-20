@@ -20,16 +20,17 @@ struct wc{
 
 static dataItem deletedDataItem = {NULL, NULL};
 
-long
-hash(char *str)
+static unsigned long
+hash(str)
+unsigned char *str;
 {
-    long hash = 5381;
-    int c;
+	unsigned long hash = 0;
+	int c;
 
-    while ((c = *str++))
-        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+	while (c = *str++)
+		hash = c + (hash << 6) + (hash << 16) - hash;
 
-    return hash;
+	return hash;
 }
 
 // static int hash(char* str, int prime, int buckets){
