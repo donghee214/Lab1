@@ -31,8 +31,8 @@ static int hash(char* str, int prime, int buckets){
 };
 
 static int getHash(char* str, int attempt, int buckets){
-    int hashA = hash(str);
-    int hashB = hash(str);
+    int hashA = hash(str, 151, buckets);
+    int hashB = hash(str, 163, buckets);
     return (hashA + (attempt * (hashB + 1))) % buckets;
 };
 
