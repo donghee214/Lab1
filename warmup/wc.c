@@ -39,7 +39,7 @@ static int getHash(char* str, int attempt, int buckets){
 
 static dataItem* newDataItem(char* inputKey, char* inputValue){
     dataItem* i = malloc(sizeof(dataItem));
-	if (i == NULL) prinf("GG\n");
+	if (i == NULL) printf("GG\n");
     i->key = strdup(inputKey);
     i->value = strdup(inputValue);
     return i;
