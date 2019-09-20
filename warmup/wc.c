@@ -117,7 +117,7 @@ struct wc *
 wc_init(char *word_array, long size)
 {   
     struct wc* wc = (struct wc *)malloc(sizeof(struct wc));
-    wc->size = 10000;
+    wc->size = 1000;
     wc->filledCount = 0;
     wc->items = calloc((size_t)wc->size, sizeof(dataItem));
     char word[40]= "";
