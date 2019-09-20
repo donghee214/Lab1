@@ -22,7 +22,7 @@ static dataItem deletedDataItem = {NULL, NULL};
 
 
 
-static int hash(const char* str, const int prime, const int buckets){
+static int hash(char* str, int prime, int buckets){
     long hash = 0;
     for (int i = 0; i < strlen(str); i++){
         hash += (long)pow(prime, strlen(str) - (i+1)) * str[i];
@@ -31,9 +31,9 @@ static int hash(const char* str, const int prime, const int buckets){
     return (int)hash;
 };
 
-static int getHash(const char* str, const int attempt, const int buckets){
-    const int hashA = hash(str, 151, buckets);
-    const int hashB = hash(str, 163, buckets );
+static int getHash(char* str, int attempt, int buckets){
+    int hashA = hash(str, 151, buckets);
+    int hashB = hash(str, 163, buckets );
     return (hashA + (attempt * (hashB + 1))) % buckets;
 };
 
@@ -67,7 +67,7 @@ void insert(struct wc* wc, char* key, char* value){
     wc->filledCount++;
 };
 
-void delete(struct wc* wc, const char* key) {
+void delete(struct wc* wc, char* key) {
     int index = getHash(key, 0, wc->size);
     dataItem* item = wc->items[index];
     int i = 1;
@@ -87,7 +87,7 @@ void delete(struct wc* wc, const char* key) {
     wc->filledCount--;
 }
 
-char* search(struct wc* wc, const char* key) {
+char* search(struct wc* wc, char* key) {
     int index = getHash(key, 0, wc->size);
     dataItem* item = wc->items[index];
     int i = 1;
