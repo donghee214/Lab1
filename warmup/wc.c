@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "common.h"
 #include <math.h>
+#include <limits.h>
 #include "wc.h"
 
 typedef struct {
