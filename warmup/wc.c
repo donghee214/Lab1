@@ -20,16 +20,18 @@ struct wc{
 
 static dataItem deletedDataItem = {NULL, NULL};
 
-unsigned long
-hash(unsigned char *str)
-{
-	unsigned long hash = 5381;
-	int c;
+int hash(char *key ) {
+	unsigned long int hashval;
+	int i = 0;
 
-	while ((c = *str++))
-		hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+	/* Convert our string to an integer */
+	while( hashval < ULONG_MAX && i < strlen(key) ) {
+		hashval = hashval << 8;
+		hashval += key[i];
+		i++;
+	}
 
-	return hash;
+	return hashval % 53;
 }
 // static int hash(char* str, int prime, int buckets){
 //     long hash = 1;
