@@ -25,16 +25,16 @@ static dataItem deletedDataItem = {NULL, NULL};
 static int hash(char* str, int prime, int buckets){
     long hash = 1;
     for (int i = 0; i < strlen(str); i++){
-        hash += (long)pow(prime, strlen(str) - (i+1)) * str[i];
+        hash += (long)pow(prime, strlen(str) - (i+1)) * abs(str[i]);
         hash = hash % buckets;
     }
-    return (int)abs(hash);
+    return (int)hash;
 };
 
 static int getHash(char* str, int attempt, int buckets){
     int hashA = hash(str, 151, buckets);
     int hashB = hash(str, 163, buckets );
-    return abs((hashA + (attempt * (hashB + 1))) % buckets);
+    return (hashA + (attempt * (hashB + 1))) % buckets;
 };
 
 static dataItem* newDataItem(char* inputKey, char* inputValue){
@@ -106,9 +106,9 @@ struct wc *
 wc_init(char *word_array, long size)
 {   
     struct wc* wc = (struct wc *)malloc(sizeof(struct wc));
-    wc->size = 1000;
+    wc->size = 53;
     wc->filledCount = 0;
-    wc->items = calloc((size_t)wc->size, sizeof(dataItem*));
+    wc->items = calloc((size_t)wc->size, sizeof(dataItem));
     char word[40]= "";
     for(int i = 0; i < size; i++){
             if(isspace(word_array[i]) == 0){
