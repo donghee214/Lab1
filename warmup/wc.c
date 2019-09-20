@@ -102,7 +102,7 @@ char* search(struct wc* wc, char* key) {
     int index = getHash(key, 0, wc->size);
     dataItem* item = wc->items[index];
     int i = 1;
-    while (item != NULL) {
+    while (item != NULL && item != &deletedDataItem) {
         if (strcmp(item->key, key) == 0) {
             return item->value;
         }
