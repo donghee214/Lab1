@@ -23,23 +23,22 @@ static dataItem deletedDataItem = {NULL, NULL};
 
 
 static int hash(char* str, int prime, int buckets){
-    long hash = 0;
+    long hash = 1;
     for (int i = 0; i < strlen(str); i++){
         hash += (long)pow(prime, strlen(str) - (i+1)) * str[i];
         hash = hash % buckets;
     }
-    return (int)hash;
+    return (int)abs(hash);
 };
 
 static int getHash(char* str, int attempt, int buckets){
     int hashA = hash(str, 151, buckets);
     int hashB = hash(str, 163, buckets );
-    return (hashA + (attempt * (hashB + 1))) % buckets;
+    return abs((hashA + (attempt * (hashB + 1))) % buckets);
 };
 
 static dataItem* newDataItem(char* inputKey, char* inputValue){
     dataItem* i = malloc(sizeof(dataItem));
-	if (i == NULL) printf("GG\n");
     i->key = strdup(inputKey);
     i->value = strdup(inputValue);
     return i;
