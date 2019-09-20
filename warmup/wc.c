@@ -42,8 +42,8 @@ hash(char *str)
 // };
 
 static int getHash(char* str, int attempt, int buckets){
-    int hashA = hash(str, 151, buckets);
-    int hashB = hash(str, 163, buckets );
+    int hashA = hash(str);
+    int hashB = hash(str);
     return (hashA + (attempt * (hashB + 1))) % buckets;
 };
 
