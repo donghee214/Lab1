@@ -44,7 +44,7 @@ static dataItem* newDataItem(char* inputKey, char* inputValue){
     return i;
 };
 
-void insert(struct wc* wc, const char* key, const char* value){
+void insert(struct wc* wc, char* key, char* value){
     dataItem* item = newDataItem(key, value);
     int index = getHash(item->key, 0, wc->size);
     dataItem* currItem = wc->items[index];
