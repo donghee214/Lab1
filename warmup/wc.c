@@ -20,26 +20,26 @@ struct wc{
 
 static dataItem deletedDataItem = {NULL, NULL};
 
-unsigned long
-hash(unsigned char *str)
-{
-    unsigned long hash = 5381;
-    int c;
+// unsigned long
+// hash(unsigned char *str)
+// {
+//     unsigned long hash = 5381;
+//     int c;
 
-    while (c = *str++)
-        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+//     while (c = *str++)
+//         hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
 
-    return hash;
-}
+//     return hash;
+// }
 
-// static int hash(char* str, int prime, int buckets){
-//     long hash = 1;
-//     for (int i = 0; i < strlen(str); i++){
-//         hash += (long)pow(prime, strlen(str) - (i+1)) * str[i];
-//         hash = hash % buckets;
-//     }
-//     return (int)hash;
-// };
+static int hash(char* str, int prime, int buckets){
+    long hash = 1;
+    for (int i = 0; i < strlen(str); i++){
+        hash += (long)pow(prime, strlen(str) - (i+1)) * str[i];
+        hash = hash % buckets;
+    }
+    return (int)hash;
+};
 
 static int getHash(char* str, int attempt, int buckets){
     int hashA = hash(str, 151, buckets);
