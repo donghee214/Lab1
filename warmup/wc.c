@@ -21,27 +21,14 @@ struct wc{
 
 static dataItem deletedDataItem = {NULL, NULL};
 
-int hash(char *key ) {
-	unsigned long int hashval;
-	int i = 0;
-
-	/* Convert our string to an integer */
-	while( hashval < ULONG_MAX && i < strlen(key) ) {
-		hashval = hashval << 8;
-		hashval += key[i];
-		i++;
-	}
-
-	return hashval % 53;
-}
-// static int hash(char* str, int prime, int buckets){
-//     long hash = 1;
-//     for (int i = 0; i < strlen(str); i++){
-//         hash += (long)pow(prime, strlen(str) - (i+1)) * str[i];
-//         hash = hash % buckets;
-//     }
-//     return (int)hash;
-// };
+static int hash(char* str, int prime, int buckets){
+    long hash = 1;
+    for (int i = 0; i < strlen(str); i++){
+        hash += (long)pow(prime, strlen(str) - (i+1)) * str[i];
+        hash = hash % buckets;
+    }
+    return (int)hash;
+};
 
 static int getHash(char* str, int attempt, int buckets){
     int hashA = hash(str);
