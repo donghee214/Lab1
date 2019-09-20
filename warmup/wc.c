@@ -120,9 +120,10 @@ wc_init(char *word_array, long size)
                     insert(wc, word, "1");
                 }
                 else{
-                    int val = atoi(searchRes);
-                    val++;
-                    sprintf(searchRes,"%d", val);
+					searchRes++;
+                    // int val = atoi(searchRes);
+                    // val++;
+                    // sprintf(searchRes,"%d", val);
                     insert(wc, word, searchRes);
                 }
                 memset(word,0,strlen(word));
