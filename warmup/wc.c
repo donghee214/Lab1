@@ -39,8 +39,12 @@ static int getHash(const char* str, const int attempt, const int buckets){
 
 static dataItem* newDataItem(const char*inputKey, const char* inputValue){
     dataItem* i = malloc(sizeof(dataItem));
-    i->key = strdup(inputKey);
-    i->value = strdup(inputValue);
+	char* tempKey = strdup(inputKey);
+	char* tempVal = strdup(inputValue);
+    i->key = tempKey;
+    i->value = tempVal;
+	free(tempKey);
+	free(tempVal);
     return i;
 };
 
